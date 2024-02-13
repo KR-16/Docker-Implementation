@@ -1,5 +1,5 @@
 import json
-from flask import Flask
+from flask import Flask, render_template
 import psycopg2
 import os
 
@@ -12,8 +12,8 @@ else:
    password = os.environ['POSTGRES_PASSWORD']
 
 @app.route('/')
-def hello_world():
-    return 'Hello, Docker!'
+def index():
+    return render_template('index.html')
 
 
 @app.route('/widgets')
